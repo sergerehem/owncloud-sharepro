@@ -7,6 +7,8 @@ share dropdown dialog.
 Email search is performed against LDAP database which is used by LDAP user and
 group backend.
 
+![owncloud-sharepro](http://i.imgur.com/RN4BwV5.png)
+
 ## Dependency
 
-Depends on user_ldap and appframework apps.
+This app requires user_ldap and appframework to be installed and enabled.
