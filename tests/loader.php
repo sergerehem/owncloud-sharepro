@@ -22,7 +22,7 @@
 spl_autoload_register(function ($className) {
     if (strpos($className, 'OCA\\') === 0) {
         $path = strtolower(str_replace('\\', '/', substr($className, 3)) . '.php');
-        $relPath = __DIR__ . '/../../../core/apps' . $path;
+        $relPath = __DIR__ . '/../..' . $path;
         require_once $relPath;
     }
 });
