@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<info>
+    <id>sharepro</id>
+    <name>Share Pro</name>
+    <description>Adds autocomplete feature to email field in share dropdown dialog.
+    Email search is performed in LDAP database which is used by LDAP user and
+    group backend.</description>
+    <version>0.1</version>
+    <licence>AGPL</licence>
+    <author>Aleksandr Tsertkov</author>
+    <require>5</require>
+</info>
