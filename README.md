@@ -11,10 +11,13 @@ group backend.
 
 ## Requirements
 
-This app requires user_ldap and appframework to be installed and enabled.
+This app requires **user_ldap** and **appframework** to be installed and enabled.
 
 ## Configuration
 
 SharePro uses LDAP connection and configuration from user_ldap app. If several LDAP servers are configured then only the first one will be used.
 
-Make sure you have set **User Search Attributes** and **User Display Name Field** on **Advanced** tab of **LDAP user and group backend** configuration page.
+Make sure you have set **User Search Attributes** and **User Display Name Field** on Advanced tab of **LDAP user and group backend** configuration page.
+
+![search attributes configuration](http://i.imgur.com/aJK0Yvy.png)
+![emial attribute configuration](http://i.imgur.com/7DeUNgW.png)
