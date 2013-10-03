@@ -38,9 +38,6 @@ $(document).ready(function(){
             {
                 event.preventDefault();
             }
-        }).bind("blur", function(){
-            // remove trailing spaces on blur otherwise OC fails mailing
-            input.val($.trim(input.val()));
         }).autocomplete({
             minLength: 1,
             appendTo: "#emailPrivateLink",
@@ -59,18 +56,22 @@ $(document).ready(function(){
                     }
                 });
             },
-            focus: function(event, ui){
+            select: function(event, ui){
                 var terms = input.val().split(/\s+/);
-                terms.pop();
+
+                var top = terms[terms.length - 1];
+                var foundEmail = top.search('@');
+                while (foundEmail  == -1 && terms.length > 0) {
+                  terms.pop();         
+                  if (terms.length > 0) { 
+                    top = terms[terms.length - 1];
+                    foundEmail = top.search('@');
+                  }
+                }
+                
                 terms.push(ui.item.value);
                 terms = terms.join(" ");
                 input.val(terms);
-                event.preventDefault();
-            },
-            select: function(event, ui){
-                input.blur();
-                input.val(input.val() + " ");
-                input.focus();
                 event.preventDefault();
             }
         });
