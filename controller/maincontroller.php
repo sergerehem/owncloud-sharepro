@@ -65,9 +65,17 @@ class MainController extends Controller
             return new JSONResponse();
         }
 
-        $exclude = preg_split("/\\s+/", $query);
-        $query = array_pop($exclude);
-
+        $exclude = array(); 
+        $query = str_replace(array(',',';'), ' ', $query); // replaces all ',' and ';' by ' '
+        $query = trim(preg_replace('/\s+/',' ', $query));  // remove extra whitespaces
+        $pos = strrpos($query, '@');
+        if ($pos !== false) {
+          $posBlank = strpos($query, ' ', $pos);
+          if ($posBlank !== false) {
+             $query = trim(substr($query, $posBlank));
+           }
+        }
+        
         // return earlier if nothing to search
         if (!strlen($query)) {
             return new JSONResponse();
